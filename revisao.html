@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Jogo Ganhou, Perdeu!</title>
+</head>
+<body>
+<script lang="JavaScript">
+var palpite, jogadorDaVez, qtdeJogadores, oculto, limiteInf, limiteSup;
+
+jogadorDaVez = 1;
+limiteInf = 0;
+limiteSup = 100
+
+qtdeJogadores = parseFloat(window.prompt("Quantos jogadores irão jogar: (entre 2 e 5)"));
+oculto = Math.floor(Math.random() * 100 + 1);
+
+
+do
+{   
+   do
+   {
+      palpite = parseFloat(window.prompt("Jogador "+ jogadorDaVez + ", informe um número entre " + limiteInf + "e" + limiteSup));
+   }
+   while (palpite<=limiteInf || palpite>=limiteSup);
+
+   if (palpite == oculto)
+   {  
+       document.write("Parabéns jogador"+ jogadorDaVez + ",você perdeu!");
+   }
+   else
+     if (palpite<oculto)
+        {
+           limiteInf = palpite;
+        }
+    else
+        {
+           limiteSup = palpite;
+        }
+    ++jogadorDaVez;
+    if (jogadorDaVez>qtdeJogadores)
+    {
+       jogadorDaVez = 1;
+    }
+}
+while(palpite!=oculto)
+</script>
+</body>
+</html>
